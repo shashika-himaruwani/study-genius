@@ -1,92 +1,105 @@
-/* src/components/CourseCarousel.css */
+/* Container for horizontal scrolling */
+.horizontal-scroll-container {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  padding: 10px; /* Add some spacing around the container */
+  gap: 20px; /* Space between the cards */
+  scroll-behavior: smooth; /* Smooth scrolling effect */
+}
 
-.section.courses {
-    padding: 60px 0;
-    background-color: #f9f9f9;
-  }
-  
-  .section.courses .section-heading {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .section.courses .section-heading h2 {
-    font-size: 36px;
-    color: #333;
-    font-weight: 600;
-  }
-  
-  /* Owl Carousel Styling */
-  .owl-carousel {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 0 15px;
-  }
-  
-  .owl-carousel .item {
-    background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .owl-carousel .item:hover {
-    transform: translateY(-10px);
-  }
-  
-  .owl-carousel .item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  .owl-carousel .down-content {
-    margin-top: 20px;
-  }
-  
-  .owl-carousel .down-content h4 {
-    font-size: 20px;
-    color: #333;
-    font-weight: 600;
-  }
-  
-  .owl-carousel .down-content p {
-    font-size: 14px;
-    color: #777;
-    margin: 10px 0 20px 0;
-  }
-  
-  .owl-carousel .author-image img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  
-  .owl-carousel .text-button-free a,
-  .owl-carousel .text-button-pay a {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 14px;
-    color: #fff;
-    transition: background-color 0.3s ease;
-  }
-  
+.horizontal-scroll-container::-webkit-scrollbar {
+  height: 8px; /* Adjust the scrollbar height */
+}
 
-  
-  /* Responsive Carousel */
-  @media (max-width: 768px) {
-    .owl-carousel {
-      flex-direction: column;
-      gap: 30px;
-    }
-  
-    .owl-carousel .item {
-      width: 100%;
-    }
-  }
-  
+.horizontal-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #007bff; /* Blue scrollbar color */
+  border-radius: 4px; /* Rounded edges for scrollbar thumb */
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Light gray track */
+}
+
+/* Individual card styling */
+.item {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px; /* Fixed width for consistent scrolling */
+  flex-shrink: 0; /* Prevent cards from shrinking */
+}
+
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.down-content {
+  padding: 15px;
+}
+
+.down-content h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.down-content p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.author-image {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.author-image img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+/* Button styling */
+.text-button-free,
+.text-button-pay {
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #4756dd; /* Blue for all buttons */
+  transition: background-color 0.3s ease;
+}
+
+.text-button-free:hover,
+.text-button-pay:hover {
+  background-color: #007bff; /* Darker blue on hover */
+}
+
+.text-button-free i,
+.text-button-pay i {
+  margin-left: 5px;
+}
+
+/* Placeholder for no-course message */
+.no-course {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+}
